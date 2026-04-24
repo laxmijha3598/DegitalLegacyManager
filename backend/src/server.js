@@ -20,12 +20,9 @@ async function main() {
   await connectDb(env.MONGODB_URI);
 
   const app = express();
-  app.use(
-    cors({
-      origin: env.CORS_ORIGIN,
-      credentials: true
-    })
-  );
+app.use(cors({
+  origin: "*"
+}));
   app.use(express.json({ limit: "2mb" }));
   app.use(morgan("dev"));
 
